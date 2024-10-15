@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Character {
+<<<<<<< HEAD
     // Base attributes
     public String name;
     public int health;
@@ -30,13 +31,80 @@ public class Character {
     public int takeDamage(int damage) {
         this.health -= damage;
         return this.health; // Return the current health after damage
+=======
+    //base 
+    String name;
+    int health; 
+    int maxHealthPoints;
+    
+    //Character stats
+    int strength; 
+    int defence; 
+    int intelligence; 
+    int initiative;   //character turn order 
+    
+    //Status effect 
+    boolean wounded; 
+    boolean poisoned; 
+
+    //arraylist to hold Equipment 
+    // Armour Armour;  
+    // Weapon Weapon; 
+    
+
+
+    //Character Constructor Method 
+    public Character (String name,int health, int strength,int defence,int intelligence,int initiative){
+        this.name= name;
+        this.health = health; 
+
+        this.strength = strength; 
+        this.defence = defence; 
+        this.intelligence = intelligence; 
+        this.initiative = initiative; 
+
+        this.wounded = false; 
+        this.poisoned = false; 
+
     }
 
-    // Returns true if the character is still alive, false otherwise
-    public boolean isAlive() {
-        return this.health > 0;
+    //Methods (get and set) character stats 
+    public String getName(){
+        return name; 
     }
 
+    public int getHealth(){
+        return health; 
+    }
+
+    public void setHealth (){
+        this.health = Math.max(0,Math.min(health,maxHealthPoints));
+    }
+
+    public int getStrength(){
+        return strength; 
+    }
+
+    public int getDefence(){
+        return defence; 
+    }
+ 
+    public int getIntelligence() {
+        return intelligence;
+    }
+    
+    public int getInitiative() {
+        return initiative;
+    }
+
+    public boolean isPoisoned() {
+        return poisoned;
+>>>>>>> parent of e9a1df1 (idk)
+    }
+
+    
+
+<<<<<<< HEAD
     // Getter methods
     public String getName() {
         return this.name;
@@ -79,4 +147,6 @@ public class Character {
         // Recursive call for the next round of attack
         this.recursiveAttack(target);
     }
+=======
+>>>>>>> parent of e9a1df1 (idk)
 }
