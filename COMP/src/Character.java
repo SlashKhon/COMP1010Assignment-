@@ -1,73 +1,45 @@
 public class Character {
-    //base 
-    String name;
-    int health; 
-    int maxHealthPoints;
+    //base
+    public String name;
+    public int health;
+    public int strength;
+    public int defense;
     
-    //Character stats
-    int strength; 
-    int defence; 
-    int intelligence; 
-    int initiative;   //character turn order 
-    
-    //Status effect 
-    boolean wounded; 
-    boolean poisoned; 
-
-    //arraylist to hold Equipment 
-    // Armour Armour;  
-    // Weapon Weapon; 
-    
-
-
-    //Character Constructor Method 
-    public Character (String name,int health, int strength,int defence,int intelligence,int initiative){
-        this.name= name;
-        this.health = health; 
-
-        this.strength = strength; 
-        this.defence = defence; 
-        this.intelligence = intelligence; 
-        this.initiative = initiative; 
-
-        this.wounded = false; 
-        this.poisoned = false; 
-
-    }
-
-    //Methods (get and set) character stats 
-    public String getName(){
-        return name; 
-    }
-
-    public int getHealth(){
-        return health; 
-    }
-
-    public void setHealth (){
-        this.health = Math.max(0,Math.min(health,maxHealthPoints));
-    }
-
-    public int getStrength(){
-        return strength; 
-    }
-
-    public int getDefence(){
-        return defence; 
-    }
- 
-    public int getIntelligence() {
-        return intelligence;
+    public Character(String name, int health, int strength, int defense) {
+        this.name = name;
+        this.health = health;
+        this.strength = strength;
+        this.defense = defense;
     }
     
-    public int getInitiative() {
-        return initiative;
+    public int attack(Character target) {
+        int damage = this.strength - target.getDefense();
+        damage = Math.max(0, damage);  // Prevent negative damage
+        target.takeDamage(damage);
+        System.out.println(this.name + " attacked " + target.getName() + " for " + damage + " damage.");
+        return damage; // Return the damage dealt
     }
 
-    public boolean isPoisoned() {
-        return poisoned;
+    public int takeDamage(int damage) {
+        this.health -= damage;
+        return this.health;  // Return the current health after damage
     }
 
-    
+    // Returns true if the character is still alive, false otherwise
+    public boolean isAlive() {
+        return this.health > 0;
+    }
 
+    // Getter methods
+    public String getName() {
+        return this.name;
+    }
+
+    public int getHealth() {
+        return this.health;
+    }
+
+    public int getDefense() {
+        return this.defense;
+    }
 }
