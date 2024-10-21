@@ -36,4 +36,19 @@ public class Character {
     public String toString() {
         return this.name + " (HP: " + this.health + ")";
     }
+
+    public int getHealth() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getHealth'");
+    }
+
+    public Object getStrength() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStrength'");
+    }
+
+    public Object getDefense() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDefense'");
+    }
 }
